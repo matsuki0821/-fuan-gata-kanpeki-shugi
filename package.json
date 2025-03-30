@@ -1,0 +1,10 @@
+{
+  "name": "cit-course-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Build complete!'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,15 @@
+name = "cit-course-website"
+type = "javascript"
+account_id = "5ca4946aaee8c3a8d7a0bb168bdd2404"
+workers_dev = true
+compatibility_date = "2025-03-30"
+
+[site]
+bucket = "./dist"
+entry-point = "."
+
+[env.production]
+name = "cit-course-website"
+
+[assets]
+directory = "./dist"
