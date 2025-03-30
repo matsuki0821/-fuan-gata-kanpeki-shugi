@@ -10,3 +10,6 @@ entry-point = "."
 
 [env.production]
 name = "cit-course-website"
+
+[assets]
+directory = "./dist"
