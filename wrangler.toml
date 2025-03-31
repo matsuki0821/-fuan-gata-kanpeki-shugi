@@ -1,11 +1,11 @@
 name = "cit-course-website"
-type = "javascript"
 account_id = "5ca4946aaee8c3a8d7a0bb168bbd2404"
 workers_dev = true
 compatibility_date = "2025-03-30"
+main = "index.js"
 
-[assets]
-directory = "./dist"
+[site]
+bucket = "./dist"
 
 [env.production]
 name = "cit-course-website"
