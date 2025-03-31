@@ -1,11 +1,10 @@
 name = "cit-course-website"
-account_id = "5ca4946aaee8c3a8d7a0bb168bbd2404"
-workers_dev = true
-compatibility_date = "2025-03-30"
-main = "index.js"
+account_id = "5ca4946aaee8c3a8d7a0bb168bdd2404"
+compatibility_date = "2025-04-01"
 
-[site]
-bucket = "./dist"
+[[pages.build]]
+command = "npm run build"
+dir = "dist"
 
-[env.production]
-name = "cit-course-website"
+pages_build_output_dir = "dist"
+
