@@ -1,10 +1,12 @@
 {
   "name": "cit-course-website",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "build": "echo 'Build complete!'"
+    "build": "npx vite build",
+    "dev": "vite"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
 }
