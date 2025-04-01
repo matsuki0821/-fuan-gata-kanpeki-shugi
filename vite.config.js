@@ -4,9 +4,9 @@ import path from 'path';
 
 export default defineConfig({
   build: {
-    outDir: 'dist',  // ビルド出力フォルダを指定
+    outDir: 'dist',  // ビルド出力フォルダ
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html')  // メインエントリーファイルを指定
+      input: path.resolve(__dirname, 'index.html')  // エントリーポイント
     }
   }
 });
