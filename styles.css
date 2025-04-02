@@ -1971,8 +1971,8 @@ footer {
 /* ヒーローセクションのモバイル最適化 */
 @media (max-width: 768px) {
     .hero {
-        padding: 6rem 0 3rem;
-        padding-top: calc(4rem + var(--safe-area-inset-top)); /* パディングを明示的に上書き */
+        padding: 8rem 0 5rem;
+        padding-top: calc(5rem + var(--safe-area-inset-top)); /* パディングを明示的に上書き */
     }
     
     .hero-content {
@@ -2256,11 +2256,17 @@ html {
 /* モバイル対応の強化 - 追加CSS */
 @media (max-width: 768px) {
     .hero {
-        padding-top: 0; /* 一旦パディングをリセット */
+        padding-top: 40px; /* 一旦パディングをリセット */
         margin-top: 60px; /* ヘッダーの高さ分だけマージンを設定 */
     }
     
     .header-container {
         padding-top: env(safe-area-inset-top); /* これは残す */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px; /* モバイル画面でのみ適用 */
     }
 }
