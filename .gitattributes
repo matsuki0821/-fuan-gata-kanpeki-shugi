@@ -1,5 +1,10 @@
+# すべてのテキストファイルを自動で改行コードを調整する (Windows では CRLF に、Linux/Mac では LF に変換)
 * text=auto
-*.js text eol=lf
-*.css text eol=lf
+
+# 特定のファイルを LF に統一 (GitHub にプッシュするときのみ適用)
 *.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# バイナリファイル (変換しない)
 node_modules/* binary
