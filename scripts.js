@@ -397,3 +397,23 @@ const targetPosition = targetElement.getBoundingClientRect().top + window.pageYO
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 既存のスムーズスクロール処理...
+    
+    // プライバシーポリシーへのリンクを明示的に処理
+    const privacyLinks = document.querySelectorAll('a[href*="privacy-policy.html"]');
+    privacyLinks.forEach(link => {
+        // クリックイベントリスナーをリセット（念のため）
+        link.removeEventListener('click', privacyLinkHandler);
+        link.addEventListener('click', privacyLinkHandler);
+    });
+    
+    function privacyLinkHandler(e) {
+        // 標準の動作を許可（プリベントデフォルトを行わない）
+        // e.preventDefault(); 
+        
+        // リンク先を明示的に設定（必要な場合）
+        window.location.href = this.href;
+    }
+});
