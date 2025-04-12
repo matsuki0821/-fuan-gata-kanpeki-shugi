@@ -4,9 +4,12 @@ import path from 'path';
 
 export default defineConfig({
   build: {
-    outDir: 'dist',  // ビルド出力フォルダ
+    outDir: 'dist',
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html')  // エントリーポイント
+      input: {
+        main: path.resolve(__dirname, 'pages/index.html'),
+        privacy: path.resolve(__dirname, 'pages/privacy-policy.html') // 追加済み
+      }
     }
   }
 });
