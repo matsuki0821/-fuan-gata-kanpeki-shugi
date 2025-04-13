@@ -2335,6 +2335,15 @@ footer {
 /* モバイル対応 */
 @media (max-width: 768px) {
     footer {
-        padding: 1rem 0;
+      padding: 1rem 0;
     }
-}
+  
+    .site-title {
+      white-space: nowrap;      /* 改行を防ぐ */
+      overflow: hidden;         /* オーバーフロー対策（必要なら） */
+      text-overflow: ellipsis;  /* 省略記号（任意） */
+      font-size: 1rem;           /* モバイル用に小さく */
+      max-width: 100%;           /* 必要に応じて調整 */
+    }
+  }
+  
