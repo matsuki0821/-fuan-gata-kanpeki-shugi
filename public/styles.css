@@ -2339,11 +2339,14 @@ footer {
     }
   
     .site-title {
-      white-space: nowrap;      /* 改行を防ぐ */
-      overflow: hidden;         /* オーバーフロー対策（必要なら） */
-      text-overflow: ellipsis;  /* 省略記号（任意） */
-      font-size: 1rem;           /* モバイル用に小さく */
-      max-width: 100%;           /* 必要に応じて調整 */
+      white-space: normal;        /* 改行を許可 */
+      font-size: 1rem;            /* スマホ用に少し小さく */
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .logo {
+      text-align: center;         /* ロゴ全体を中央揃えに */
     }
   }
   
