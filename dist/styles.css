@@ -2334,19 +2334,61 @@ footer {
 
 /* モバイル対応 */
 @media (max-width: 768px) {
-    footer {
-      padding: 1rem 0;
+    /* ヘッダー全体を中央寄せ＆調整 */
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* ロゴ＋タイトルを中央寄せ */
+      padding: 10px 15px;
+      position: relative;
     }
   
-    .site-title {
-      white-space: normal;        /* 改行を許可 */
-      font-size: 1rem;            /* スマホ用に少し小さく */
-      max-width: 100%;
-      text-align: center;
-    }
-  
+    /* ロゴとタイトルを横並び */
     .logo {
-      text-align: center;         /* ロゴ全体を中央揃えに */
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  
+    .logo img {
+      width: 32px;
+      height: auto;
+    }
+  
+    .logo h1 {
+      font-size: 1rem;
+      white-space: nowrap;
+      margin: 0;
+    }
+  
+    /* ハンバーガーを右上に固定 */
+    .menu-toggle {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  
+    /* メニュー本体 */
+    #menu {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 60px; /* ヘッダーの下に表示 */
+      left: 0;
+      z-index: 999;
+    }
+  
+    /* 表示時（JavaScriptで .show を付ける） */
+    #menu.show {
+      display: flex;
+      max-height: 80vh;
+      overflow-y: auto;
     }
   }
   
