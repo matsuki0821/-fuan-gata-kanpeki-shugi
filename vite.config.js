@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 import path from 'path';
 
@@ -8,10 +7,10 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'pages/index.html'),
+        // ✅ ファイル名を index.html にリネームして明示
+        index: path.resolve(__dirname, 'index.html'),
         privacy: path.resolve(__dirname, 'pages/privacy-policy.html'),
       },
     },
   },
 });
-
