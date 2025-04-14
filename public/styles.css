@@ -2330,6 +2330,12 @@ footer {
     margin: 0;
 }
 
+/* PC・モバイル共通で適用されるようにする */
+a.logo {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
 /* モバイル対応（改善版） */
 @media (max-width: 768px) {
     .header-container {
@@ -2348,12 +2354,7 @@ footer {
         padding: 0;
         padding-top: 4px;
       }
-
-      a.logo {
-        text-decoration: none !important;
-        color: inherit !important;
-      }
-      
+     
       .logo img {
         height: 32px;
         width: auto;
