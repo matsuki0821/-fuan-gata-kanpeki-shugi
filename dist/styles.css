@@ -2347,6 +2347,8 @@ footer {
         margin: 0;
         padding: 0;
         padding-top: 4px;
+        text-decoration: none; /* ← これを追加！ */
+        color: inherit;         /* ← これも追加！ */
       }
       
       .logo img {
