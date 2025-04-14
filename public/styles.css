@@ -499,9 +499,7 @@ header {
     object-fit: contain;
     margin-right: 0.5rem; /* ロゴと文字の間の余白 */
     vertical-align: middle; /* 縦方向の配置を調整 */
-    position: relative;
-    top: -10px; /* 上に移動するための調整（必要に応じて値を変更） */
-}
+ }
 
 /* モバイル版の調整 */
 @media (max-width: 768px) {
