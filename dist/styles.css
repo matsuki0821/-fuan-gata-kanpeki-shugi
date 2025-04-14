@@ -2342,13 +2342,16 @@ footer {
   
     .logo {
         display: flex;
-        align-items: center; /* 中央揃え */
-        gap: 0.5rem; /* 画像とテキストの間隔 */
+        align-items: center;
+        gap: 0.5rem;
         margin: 0;
         padding: 0;
         padding-top: 4px;
-        text-decoration: none; /* ← これを追加！ */
-        color: inherit;         /* ← これも追加！ */
+      }
+
+      a.logo {
+        text-decoration: none !important;
+        color: inherit !important;
       }
       
       .logo img {
