@@ -2346,6 +2346,7 @@ footer {
         gap: 0.5rem; /* 画像とテキストの間隔 */
         margin: 0;
         padding: 0;
+        padding-top: 4px;
       }
       
       .logo img {
