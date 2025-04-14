@@ -2341,31 +2341,29 @@ footer {
     }
   
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0;
-      padding: 0;
-    }
-  
-    .logo img {
-      height: 32px;         /* モバイルに適したサイズ */
-      width: auto;
-      object-fit: contain;
-      display: inline-block;
-      vertical-align: middle; /* 中央揃えの補助（念のため） */
-      margin: 0;
-      position: static;
-    }
-  
-    .logo h1 {
-      font-size: 1rem;
-      margin: 0;
-      line-height: 1;
-      white-space: nowrap;
-      display: inline-block;
-      vertical-align: middle;
-    }
+        display: flex;
+        align-items: center; /* 中央揃え */
+        gap: 0.5rem; /* 画像とテキストの間隔 */
+        margin: 0;
+        padding: 0;
+      }
+      
+      .logo img {
+        height: 32px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0;
+        /* top, vertical-align, position は削除 */
+      }
+      
+      .logo h1 {
+        font-size: 1rem;
+        margin: 0;
+        line-height: 1;
+        white-space: nowrap;
+        /* vertical-align は削除 */
+      }     
   
     .menu-toggle {
       font-size: 1.5rem;
