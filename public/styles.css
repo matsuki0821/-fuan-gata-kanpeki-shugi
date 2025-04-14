@@ -2330,12 +2330,12 @@ footer {
     margin: 0;
 }
 
-/* モバイル対応 */
+/* モバイル対応（改善版） */
 @media (max-width: 768px) {
     .header-container {
       display: flex;
-      justify-content: space-between; /* 左右にロゴとメニューを配置 */
-      align-items: center;
+      justify-content: space-between; /* ロゴとメニューを左右に */
+      align-items: center;             /* 縦中央揃え */
       padding: 0.8rem 1.2rem;
       position: relative;
     }
@@ -2349,11 +2349,13 @@ footer {
     }
   
     .logo img {
-      height: 40px;
+      height: 32px;         /* モバイルに適したサイズ */
       width: auto;
       object-fit: contain;
+      display: inline-block;
+      vertical-align: middle; /* 中央揃えの補助（念のため） */
       margin: 0;
-      position: static; /* 上下移動をやめて中央に戻す */
+      position: static;
     }
   
     .logo h1 {
@@ -2361,6 +2363,8 @@ footer {
       margin: 0;
       line-height: 1;
       white-space: nowrap;
+      display: inline-block;
+      vertical-align: middle;
     }
   
     .menu-toggle {
