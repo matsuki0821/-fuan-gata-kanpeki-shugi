@@ -119,7 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle && menu) {
         // ハンバーガーメニューのトグル
         menuToggle.addEventListener('click', function() {
+            alert('Before toggle: ' + menu.className);
+
             menu.classList.toggle('show');
+            alert(' After toggle: ' + menu.className);
+            
             // アクセシビリティのため、aria属性も切り替え
             const isExpanded = menu.classList.contains('show');
             menuToggle.setAttribute('aria-expanded', isExpanded);
