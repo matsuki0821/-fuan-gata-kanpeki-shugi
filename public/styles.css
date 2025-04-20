@@ -1951,52 +1951,43 @@ footer {
 
 /* モバイルメニューのスタイル改善 */
 @media (max-width: 992px) {
-    /* １）ドロップダウン位置の基準とするために親 nav を相対配置に */
-    nav {
-      position: relative;
-    }
-  
     .menu-toggle {
-      display: block;
+        display: block;
     }
-  
-    /* ２）メニューを隠す（デフォルト） */
+    
     nav ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      flex-direction: column;
-      background-color: var(--light-color);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      z-index: 2000;           /* <-- ヘッダーより前面に出るよう高めの z-index に */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--light-color);
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
-  
-    /* ３）JS で付与される .show で表示 */
+    
     nav ul.show {
-      display: flex;
-      background-color: rgba(255, 0, 0, 0.5) !important; /* 半透明の赤 */
-      border: 2px solid yellow !important;              /* 枠線を黄色で */
+        display: flex;
     }
-  
-    /* リスト内リンクの余白＆線 */
+    
     nav ul li {
-      margin: 0;
-      border-bottom: 1px solid var(--border-color);
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
     }
+    
     nav ul li a {
-      display: block;
-      padding: 1rem;
-      text-align: center;
+        display: block;
+        padding: 1rem 0;
     }
-  
-    /* 右上のCTAは隠す */
+    
     .cta-header {
-      display: none;
+        display: none;
     }
-  }
-
+}
 
 /* ヒーローセクションのモバイル最適化 */
 @media (max-width: 768px) {
