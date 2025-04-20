@@ -18,6 +18,10 @@ window.addEventListener('load', setSafeAreaVariables);
 window.addEventListener('resize', setSafeAreaVariables);
 
 document.addEventListener('DOMContentLoaded', function() {
+    alert('① DOMContentLoaded fired');
+    alert('② menuToggle → ' + document.getElementById('menu-toggle'));
+    alert('③ menu       → ' + document.getElementById('menu'));
+
     // スライドショー関連のグローバル変数と関数
     let slideIndex = 1;
     let touchStartX = 0;
@@ -123,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             menu.classList.toggle('show');
             alert(' After toggle: ' + menu.className);
-            
+
             // アクセシビリティのため、aria属性も切り替え
             const isExpanded = menu.classList.contains('show');
             menuToggle.setAttribute('aria-expanded', isExpanded);
