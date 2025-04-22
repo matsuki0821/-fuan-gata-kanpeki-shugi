@@ -2496,9 +2496,9 @@ a.logo {
 
 .sold-out {
     color: #E74C3C;
-    font-weight: 700;
+    font-weight: bold;
+    font-size: 1.1rem;
     margin-left: 0.5rem;
-    font-size: 3rem; /* ← ためしに目立たせてみる */
   }
 
 .schedule-note {
