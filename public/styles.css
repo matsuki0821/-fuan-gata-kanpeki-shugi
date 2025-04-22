@@ -2434,11 +2434,11 @@ a.logo {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* レスポンシブ対応も忘れずに */
     margin-bottom: 2rem;
-}
-
-.schedule-card {
+  }
+  
+  .schedule-card {
     background-color: var(--light-color);
     border-radius: 10px;
     overflow: hidden;
@@ -2446,7 +2446,10 @@ a.logo {
     width: 100%;
     max-width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    display: flex;
+    flex-direction: column;
+  }
+  
 
 .schedule-card:hover {
     transform: translateY(-5px);
