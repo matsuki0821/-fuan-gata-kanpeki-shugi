@@ -2495,11 +2495,11 @@ a.logo {
 }
 
 .sold-out {
-    color: #E74C3C;      /* 赤字 */
-    font-weight: 700;    /* 太字 */
-    margin-left: 0.5rem; /* 日付とのスペース */
-    font-size: 1.1rem;   /* schedule-date と合わせる */
-}
+    color: #E74C3C;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    font-size: 3rem; /* ← ためしに目立たせてみる */
+  }
 
 .schedule-note {
     font-size: 0.9rem;
