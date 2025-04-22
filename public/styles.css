@@ -1467,12 +1467,27 @@ footer {
     align-items: flex-start;
     font-weight: 600;
     color: var(--primary-color);
+    line-height: 1.4;  /* 行間を調整 */
+    flex-wrap: nowrap;  /* 全体的に折り返し防止 */
+    padding-right: 8px;  /* この行を新たに追加 */
+}
+
+.achievement-content {
+    flex: 1;  /* flexboxの残りのスペースをすべて埋める */
+    display: inline-block;  /* インラインブロック要素として表示 */
+    line-height: 1.4;  /* 行の高さを調整 */
+}
+
+.instructor-achievements li strong {
+    white-space: nowrap;  /* 数字と単位が分離しないように */
+    display: inline-block;
 }
 
 .check-mark {
     color: var(--accent-color);
     margin-right: 8px;
     font-weight: bold;
+    flex-shrink: 0;  /* チェックマークが縮小しないように */
 }
 
 /* 大画面向けのレイアウト */
@@ -2145,6 +2160,20 @@ footer {
         padding: 1rem;
     }
     
+    .instructor-achievements li {
+        font-size: 0.9rem;
+        display: flex;
+        flex-wrap: nowrap;  /* 折り返し防止 */
+        align-items: flex-start;
+        margin-bottom: 0.8rem;
+    }
+    
+    .check-mark {
+        flex-shrink: 0;  /* チェックマークが縮小しないように */
+        margin-right: 8px;
+        margin-top: 0.1rem;
+    }
+
     .instructor-achievements li {
         font-size: 0.9rem;
     }
