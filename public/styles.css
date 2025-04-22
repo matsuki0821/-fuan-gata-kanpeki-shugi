@@ -2494,6 +2494,13 @@ a.logo {
     font-size: 1.2rem;
 }
 
+.sold-out {
+    color: #E74C3C;      /* 赤字 */
+    font-weight: 700;    /* 太字 */
+    margin-left: 0.5rem; /* 日付とのスペース */
+    font-size: 1.1rem;   /* schedule-date と合わせる */
+}
+
 .schedule-note {
     font-size: 0.9rem;
     color: #666;
