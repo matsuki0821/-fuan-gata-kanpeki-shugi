@@ -2007,7 +2007,7 @@ footer {
 /* ヒーローセクションのモバイル最適化 */
 @media (max-width: 768px) {
     .hero {
-        padding: 8rem 0 5rem;
+        padding: 2rem 0 5rem;
         padding-top: calc(5rem + var(--safe-area-inset-top)); /* パディングを明示的に上書き */
     }
     
