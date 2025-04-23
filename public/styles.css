@@ -2443,13 +2443,12 @@ a.logo {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    flex: 0 1 calc(33.333% - 2rem);  /* ←3列表示にする */
+    box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
   }
-  
 
 .schedule-card:hover {
     transform: translateY(-5px);
