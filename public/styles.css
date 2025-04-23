@@ -2437,6 +2437,9 @@ a.logo {
     align-items: stretch; /* ← これを追加！ */
     gap: 2rem;
     margin-bottom: 2rem;
+    .schedule-body {
+        flex-grow: 1;
+      }
   }
   
   .schedule-card {
