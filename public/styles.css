@@ -2548,7 +2548,8 @@ a.logo {
 /* モバイル対応 */
 @media (max-width: 768px) {
     .schedule-card {
-        max-width: 100%;
+      flex: 0 1 100%;   /* ← 1列表示に強制 */
+      max-width: 100%;  /* 念のため維持でもOK */
     }
     
     .schedule-date, .schedule-time {
