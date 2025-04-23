@@ -2432,9 +2432,10 @@ a.logo {
 
 .schedule-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch; /* ← これを追加！ */
     gap: 2rem;
-    flex-wrap: wrap; /* レスポンシブ対応も忘れずに */
     margin-bottom: 2rem;
   }
   
