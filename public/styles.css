@@ -2578,9 +2578,20 @@ header{
   }
 
   /* ===== ロゴの表示を整える ===== */
-.logo{display:flex;align-items:center;font-weight:700;text-decoration:none;color:inherit;}
+  .logo{
+    display:flex;
+    align-items:center;
+    font-weight:700;
+    text-decoration:none;
+    color:inherit;
+    flex-shrink:0;
+  }
 .logo img{height:32px;width:auto;margin-right:0.4rem;}
-.logo span{font-size:1.1rem;line-height:1;}   /* モバイル時に2行になるのを防止 */
+.logo span{
+    font-size:1.1rem;
+    line-height:1;
+    white-space:nowrap;      /* ✅ 改行禁止で 1 行に固定 */
+}
 @media(max-width:768px){
-  .logo span{font-size:1rem;}                 /* スマホで少し小さく */
+    .logo span{font-size:1rem;white-space:nowrap;}     /* 念のためモバイルでも保持 */
 }
