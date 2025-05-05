@@ -81,35 +81,21 @@
     });
     </script>
 
-    <body>
-    <!-- ヘッダー -->
+<body>
     <header>
-        <div class="header-container container">
-            <a href="/pages/index.html#top" class="logo">
-                <img src="/images/logo.png" alt="WHOLE LIFE認定講座ロゴ">
-                <h1 class="site-title">WHOLE LIFE認定講座</h1>
-            </a>
-            
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <nav>
-                <ul id="menu">
-                    <li><a href="/pages/index.html#about">講座概要</a></li>
-                    <li><a href="/pages/index.html#process">受講の流れ</a></li>
-                    <li><a href="/pages/index.html#curriculum">カリキュラム</a></li>
-                    <li><a href="/pages/index.html#instructors">講師紹介</a></li>
-                    <li><a href="/pages/index.html#blog">ブログ</a></li>
-                    <li><a href="/pages/index.html#faq">よくある質問</a></li>
-                    <li><a href="/pages/index.html#application">申し込み</a></li>
-                </ul>
-            </nav>
-            
-            <div class="cta-header">
-                <a href="/pages/index.html#application" class="btn btn-primary">申し込みはこちら</a>
-            </div>
-        </div>
+      <a href="/" class="logo">WHOLE LIFE認定講座</a>
+  
+      <button id="menu-toggle" aria-label="メニュー" aria-controls="menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <nav>
+        <ul id="menu">
+          <li><a href="#about">講座概要</a></li>
+          <li><a href="#process">受講の流れ</a></li>
+          <li><a href="#curriculum">カリキュラム</a></li>
+        </ul>
+      </nav>
     </header>
 
    <!-- ヒーローセクション -->
@@ -639,7 +625,6 @@
         <!-- ✅ Google reCAPTCHA -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       
-        <script src="/index.js" type="module" defer></script>
-
+        <script type="module" src="/js/menu.js"></script>
       </body>
       </html>
