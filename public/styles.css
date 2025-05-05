@@ -481,12 +481,12 @@ header {
 
 .logo {
     display: flex;
-    align-items: center; /* ロゴとテキストを縦方向に中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
     gap: 0.5rem; /* ロゴとテキストの間に余白を追加 */
 }
 
 .logo img {
-    height: 50px; /* ロゴの高さを調整 */
+    height: 40px; /* ロゴの高さを調整 */
     width: auto; /* アスペクト比を維持 */
 }
 
@@ -494,6 +494,7 @@ header {
     font-size: 1.5rem; /* テキストのサイズを調整 */
     font-weight: bold; /* 太字にする */
     margin: 0; /* 余白をリセット */
+    white-space: nowrap; /* テキストの折り返しを防止 */
 }
 
 nav {
