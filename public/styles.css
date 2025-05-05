@@ -483,6 +483,7 @@ header {
     display: flex;
     align-items: center; /* 縦方向の中央揃え */
     gap: 0.5rem; /* ロゴとテキストの間に余白を追加 */
+    margin-right: auto; /* ロゴとテキストを左揃えにする */
 }
 
 .logo img {
