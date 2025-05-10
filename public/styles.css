@@ -1999,7 +1999,7 @@ footer {
       /* 下側 5rem の余白は残しつつ、上方向はゼロに */
       padding: 2rem 0 5rem;
       /* ↓ ここを“5rem”固定ではなくヘッダーの高さで上書き */
-      padding-top:calc(var(--header-h) + 1.5rem);
+      padding-top: calc(var(--header-h) + 1.5rem);
     }
   
     /* iPhone ノッチに合わせる（対応ブラウザだけ有効）*/
@@ -2264,12 +2264,6 @@ html {
     
     .header-container {
         padding-top: env(safe-area-inset-top); /* これは残す */
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding-top: 80px; /* モバイル画面でのみ適用 */
     }
 }
 
