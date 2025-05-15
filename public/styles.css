@@ -1011,7 +1011,7 @@ nav ul li a {
 }
 
 .pricing-title {
-    color: var(--primary-color);
+    color: var (--primary-color);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
