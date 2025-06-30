@@ -474,43 +474,28 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 1rem 1.5rem;
-    width: 100%;
-    max-width: 100%; /* 幅を最大に */
-    margin: 0; /* マージンを0に */
+    align-items: center; /* 縦方向の中央揃え */
+    justify-content: flex-start; /* 左揃えに変更 */
+    padding: 1rem 2rem; /* ヘッダーの内側余白を調整 */
 }
 
 .logo {
-    flex: 0 0 auto;
-    margin-right: 2rem;
-    margin-left: 0; /* 左マージンを0に明示的に設定 */
-    padding-left: 1rem; /* 少し左側に余白を追加 */
     display: flex;
-    align-items: center;
+    align-items: center; /* 縦方向の中央揃え */
+    gap: 0.5rem; /* ロゴとテキストの間に余白を追加 */
+    margin-right: 2rem; /* ナビゲーションとの間に余白を追加 */
 }
 
 .logo img {
-    height: 60px; /* 大きくしたいのでサイズを増やす */
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    margin-right: 0.5rem; /* ロゴと文字の間の余白 */
-    vertical-align: middle; /* 縦方向の配置を調整 */
- }
+    height: 40px; /* ロゴの高さを調整 */
+    width: auto; /* アスペクト比を維持 */
+}
 
-/* モバイル版の調整 */
-@media (max-width: 768px) {
-    .logo {
-        margin-left: 0;
-        padding-left: 0;
-    }
-    
-    .header-container {
-        padding-left: 0.5rem; /* ヘッダーコンテナの左パディングを小さく */
-    }
+.logo h1 {
+    font-size: 1.5rem; /* テキストのサイズを調整 */
+    font-weight: bold; /* 太字にする */
+    margin: 0; /* 余白をリセット */
+    white-space: nowrap; /* テキストの折り返しを防止 */
 }
 
 nav {
@@ -1026,7 +1011,7 @@ nav ul li a {
 }
 
 .pricing-title {
-    color: var(--primary-color);
+    color: var (--primary-color);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
@@ -2005,79 +1990,46 @@ footer {
 }
 
 /* ヒーローセクションのモバイル最適化 */
-@media (max-width: 768px) {
-    .hero {
-        padding: 2rem 0 5rem;
-        padding-top: calc(5rem + var(--safe-area-inset-top)); /* パディングを明示的に上書き */
-    }
-    
-    .hero-content {
-        flex-direction: column;
-    }
-    
-    .hero-text {
-        flex: 100%;
-        padding-right: 0;
-        text-align: center;
-        margin-bottom: 2rem;
-        max-width: 100%; /* 幅の制限を解除 */
-        display: block; /* 確実に表示 */
-        visibility: visible; /* 非表示状態を解除 */
-        opacity: 1; /* 透明度を確実に100%に */
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem; /* モバイル用にフォントサイズを調整 */
-        display: block;
-        margin-bottom: 1rem;
-        white-space: normal; /* 改行を許可 */
-        overflow: visible; /* はみ出し部分も表示 */
-    }
-    
-    .hero h1::after {
-        margin: 1rem auto 0;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-        padding-left: 0;
-        border-left: none;
-        padding-top: 0.5rem;
-        border-top: 2px solid var(--accent-color);
-        display: block; /* 確実に表示 */
-        white-space: normal; /* 改行を許可 */
-    }
-    
-    .hero-image {
-        width: 100%;
-        height: 300px;
-        margin-top: 2rem; /* 画像の上部に余白を追加 */
-    }
-    
-    .hero-cta {
-        justify-content: center;
-    }
-}
+@media (max-width:768px){
 
-/* 特徴カードのモバイル対応 */
-@media (max-width: 576px) {
-    .feature-card {
-        padding: 1.5rem 1rem;
+    /* 固定ヘッダーの高さ（ロゴ + バー分）*/
+    :root{ --header-h:64px; }
+  
+    .hero{
+      /* 下側 5rem の余白は残しつつ、上方向はゼロに */
+      padding: 2rem 0 5rem;
+      /* ↓ ここを“5rem”固定ではなくヘッダーの高さで上書き */
+      padding-top: calc(var(--header-h) + 1.5rem);
     }
-    
-    .feature-icon {
-        width: 60px;
-        height: 60px;
+  
+    /* iPhone ノッチに合わせる（対応ブラウザだけ有効）*/
+    @supports(padding:env(safe-area-inset-top)){
+      .hero{
+        padding-top:calc(
+          var(--header-h) + env(safe-area-inset-top) + 1.5rem
+        );
+      }
     }
-    
-    .feature-icon i {
-        font-size: 1.8rem;
+  
+    /* ↓ 既存のレイアウト調整はそのまま残して OK */
+    .hero-content{ flex-direction:column; }
+    .hero-text{
+      flex:100%; padding-right:0; text-align:center; margin-bottom:2rem;
+      max-width:100%; display:block; visibility:visible; opacity:1;
     }
-    
-    .feature-card h3 {
-        font-size: 1.2rem;
+    .hero h1{
+      font-size:1.8rem; margin-bottom:1rem;
+      white-space:normal; overflow:visible;
     }
-}
+    .hero h1::after{ margin:1rem auto 0; }
+    .hero-subtitle{
+      font-size:1.1rem; padding-left:0; border-left:none;
+      padding-top:.5rem; border-top:2px solid var(--accent-color);
+      display:block; white-space:normal;
+    }
+    .hero-image{ width:100%; height:300px; margin-top:2rem; }
+    .hero-cta{ justify-content:center; }
+  }
 
 /* 受講の流れセクションのモバイル対応 */
 @media (max-width: 768px) {
@@ -2315,12 +2267,6 @@ html {
     }
 }
 
-@media (max-width: 768px) {
-    body {
-        padding-top: 80px; /* モバイル画面でのみ適用 */
-    }
-}
-
 /* フッターセクション */
 footer {
     background-color: #f5f5f5;
@@ -2378,29 +2324,19 @@ a.logo {
     .logo {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+    }
+    
+    .logo img {
+        height: 32px;  /* ロゴ画像の高さ */
+        margin-right: 8px;  /* 画像と文字の間隔 */
+    }
+    
+    .logo h1 {
+        font-size: 1rem;  /* 1.2rem → 1rem */
         margin: 0;
-        padding: 0;
-        padding-top: 4px;
-      }
-     
-      .logo img {
-        height: 32px;
-        width: auto;
-        object-fit: contain;
-        display: block;
-        margin: 0;
-        /* top, vertical-align, position は削除 */
-      }
-      
-      .logo h1 {
-        font-size: 1rem;
-        margin: 0;
-        line-height: 1;
-        white-space: nowrap;
-        /* vertical-align は削除 */
-      }     
-  
+    }
+    
+    
     .menu-toggle {
       font-size: 1.5rem;
       cursor: pointer;
@@ -2432,10 +2368,14 @@ a.logo {
 
 .schedule-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch; /* ← これを追加！ */
     gap: 2rem;
-    flex-wrap: wrap; /* レスポンシブ対応も忘れずに */
     margin-bottom: 2rem;
+    .schedule-body {
+        flex-grow: 1;
+      }
   }
   
   .schedule-card {
@@ -2443,13 +2383,12 @@ a.logo {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    flex: 0 1 calc(33.333% - 2rem);  /* ←3列表示にする */
+    box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
   }
-  
 
 .schedule-card:hover {
     transform: translateY(-5px);
@@ -2545,10 +2484,75 @@ a.logo {
 /* モバイル対応 */
 @media (max-width: 768px) {
     .schedule-card {
-        max-width: 100%;
+      flex: 0 1 100%;   /* ← 1列表示に強制 */
+      max-width: 100%;  /* 念のため維持でもOK */
     }
     
     .schedule-date, .schedule-time {
         font-size: 1rem;
     }
+}
+
+/* ハンバーガー動作用：必ず他の nav ルールより後ろか、!important を付ける */
+nav ul { display:none; }
+nav ul.show { display:flex!important; flex-direction:column; }
+
+@media (min-width:993px){
+  nav ul { display:flex!important; }   /* デスクトップで常に表示 */
+}
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.8rem 1.2rem;
+  }
+  
+  .menu-toggle{
+    font-size:1.8rem;
+    cursor:pointer;
+    background:none;
+    border:none;
+  }
+  
+  /* SP メニュー初期は非表示 */
+  header nav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  
+  @media(max-width:992px){
+    header nav ul{
+      padding:0;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+    header nav ul li{border-bottom:1px solid #eee;}
+    header nav ul li a{
+      display:block;padding:1rem .5rem;text-align:center;
+    }
+  }
+  
+  @media (min-width:993px){
+    .menu-toggle{display:none;}
+    nav ul{display:flex !important;}
+  }
+
+  /* ===== ロゴの表示を整える ===== */
+  .logo{
+    display:flex;
+    align-items:center;
+    font-weight:700;
+    text-decoration:none;
+    color:inherit;
+    flex-shrink:0;
+  }
+.logo img{height:32px;width:auto;margin-right:0.4rem;}
+.logo span{
+    font-size:1.1rem;
+    line-height:1;
+    white-space:nowrap;      /* ✅ 改行禁止で 1 行に固定 */
+}
+@media(max-width:768px){
+    .logo span{font-size:1rem;white-space:nowrap;}     /* 念のためモバイルでも保持 */
 }
