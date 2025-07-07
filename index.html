@@ -7,7 +7,7 @@
     <title>WHOLE LIFE認定講座 - 不安型完璧主義克服トレーニング認定講座</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="stylesheet" href="/styles.css?v=2" />
+    <link rel="stylesheet" href="public/styles.css?v=2" />
 <script>
     // グローバル変数として定義
     let slideIndex = 1;
@@ -83,17 +83,16 @@
 
 <body>
     <header>
+      <div class="header-container">
         <a href="/" class="logo">
-            <img src="/images/logo.png" alt="WHOLE LIFE" />
+            <img src="public/images/logo.png" alt="WHOLE LIFE" />
             <span>WHOLE LIFE認定講座</span>
-          </a>
-                
+        </a>
         <!-- ハンバーガー -->
         <button id="menu-toggle" class="menu-toggle"
                 aria-label="メニュー" aria-controls="menu" aria-expanded="false">
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
-      
         <!-- メニュー -->
         <nav>
           <ul id="menu">
@@ -107,7 +106,8 @@
             <!-- … -->
           </ul>
         </nav>
-      </header>
+      </div>
+    </header>
 
    <!-- ヒーローセクション -->
 <section class="hero" id="about">
@@ -115,47 +115,51 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>
-  <span class="hero-highlight" style="color: #fff; display: block;">
-    不安型完璧主義克服
-  </span>
-  <span class="hero-highlight" style="color: #fff; display: block;">
-    トレーニング 認定講座
-  </span>
-</h1>
-                <p class="hero-subtitle">対人関係の<span class="hero-highlight">トッププロ</span>が教える全16のプログラム</p>
-                <div class="hero-cta">
-                    <a href="#application" class="hero-btn hero-btn-primary">今すぐ受講を開始する</a>
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <div class="slideshow-container">
-                    <div class="slide fade">
-                        <img src="/images/slide1-v2.jpg" alt="プロフェッショナルな講師による講義" class="slide-image">
-                        <div class="slide-caption">人の一生に寄り添う、学びと支え</div>
-                    </div>
-                    
-                    <div class="slide fade">
-                        <img src="/images/slide2.jpg" alt="認定証の授与" class="slide-image">
-                        <div class="slide-caption">合格者には公式認定証を発行</div>
-                    </div>
-                    
-                    <div class="slide fade">
-                        <img src="/images/slide3.jpg" alt="オンライン学習の様子" class="slide-image">
-                        <div class="slide-caption">自宅からでも快適に学べる完全オンライン形式</div>
-                    </div>
-                                      
-                </div>
-                
-                <div class="dots-container">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
+                  <div class="hero-highlight animated-text" id="main-title1">不安型完璧主義</div>
+                  <div class="hero-highlight animated-text" id="main-title2">克服トレーニング</div>
+                  <div class="hero-highlight animated-text" id="main-title3">認定講座</div>
+                </h1>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+// 一文字ずつspanでラップ
+function wrapTextBySpan(elementId) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.textContent;
+  el.innerHTML = '';
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i];
+    el.appendChild(span);
+  }
+}
+
+wrapTextBySpan('main-title1');
+wrapTextBySpan('main-title2');
+wrapTextBySpan('main-title3');
+
+// アニメーション表示
+function animateText(elementId, delay = 60) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const spans = el.querySelectorAll('span');
+  spans.forEach((span, i) => {
+    setTimeout(() => {
+      span.classList.add('visible');
+    }, i * delay);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  animateText('main-title1', 70);
+  setTimeout(() => animateText('main-title2', 70), 700);
+  setTimeout(() => animateText('main-title3', 70), 1400);
+});
+</script>
 
     <!-- CITについて -->
     <section class="about-cit">
@@ -163,7 +167,6 @@
             <div class="about-cit-content">
                 <div class="about-cit-header">
                     <h2>WHOLE LIFEについて</h2>
-                    <div class="accent-line"></div>
                 </div>
                 <div class="about-cit-body">
                     <p class="intro-text">
@@ -172,28 +175,24 @@
                         という想いが込められています。
                       </p>
                     
-                    <p>学校では勉強を学べても、家族や大切な人との関わり方を学ぶ機会は、意外と少ないですよね。でも、もし「人との関わり方」を深く学んだらどうなるでしょう？</p>
+                    <p class="intro-lead">私たちは、これを単なる理想ではなく、実現できる未来だと信じています。</p>
                     
                     <div class="benefit-cards">
                         <div class="benefit-card">
-                            <div class="benefit-icon"><i class="fas fa-heart"></i></div>
                             <p><strong>パートナーとの関係がもっと心地よいものに変わる。</strong></p>
                         </div>
                         
                         <div class="benefit-card">
-                            <div class="benefit-icon"><i class="fas fa-home"></i></div>
                             <p><strong>その変化が親子関係にも影響を与え、家庭全体が穏やかになる。</strong></p>
                         </div>
                         
                         <div class="benefit-card">
-                            <div class="benefit-icon"><i class="fas fa-sun"></i></div>
                             <p><strong>そして、そんな家庭が増えれば、日本全体がもっと明るくなる。</strong></p>
                         </div>
                     </div>
                     
-                    <p>私たちは、これを単なる理想ではなく、実現できる未来だと信じています。</p>
-                    <p>だからこそ「WHOLE LIFE」は、<span class="highlight">「人生で一番大切な人たち」とのコミュニケーションを学び、自分で対人関係の問題を解決できるプロを育てる場所</span>を目指しています。</p>
-                    <p class="closing-text">大切なのは、"生まれてから最期まで"の人生を豊かにするコミュニケーションの力。その第一歩を、私たちと一緒に踏み出してみませんか？</p>
+                    <p class="intro-lead">だからこそ「WHOLE LIFE」は、「人生で一番大切な人たち」とのコミュニケーションを学び、自分で対人関係の問題を解決できるプロを育てる場所を目指しています。</p>
+                    <p>大切なのは、"生まれてから最期まで"の人生を豊かにするコミュニケーションの力。その第一歩を、私たちと一緒に踏み出してみませんか？</p>
                 </div>
             </div>
         </div>
@@ -209,7 +208,7 @@
                         <i class="fas fa-laptop"></i>
                     </div>
                     <h3>完全オンライン</h3>
-                    <p>ご自宅や外出先からでもPC・スマホで受講可能。
+                    <p>ご自宅や外出先からでも　受講可能。
                     時間や場所を選ばず学習できます。</p>
                 </div>
                 
@@ -218,8 +217,8 @@
                         <i class="fas fa-book-open"></i>
                     </div>
                     <h3>初心者でも安心！</h3>
-                    <p>基礎から体系的に学べるカリキュラムで、
-                    初めての方も着実に知識を身につけられます。</p>
+                    <p>基礎から学べるので、
+                    　初めての方も着実に知識を身につけられます。</p>
                 </div>
                 
                 <div class="feature-card">
@@ -227,7 +226,7 @@
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h3>公式認定証発行</h3>
-                    <p>試験合格者には権威ある公式認定証を発行。
+                    <p>試験合格者には公式認定証を発行。
                     スキルの証明として活用いただけます。</p>
                 </div>
                 
@@ -237,7 +236,7 @@
                     </div>
                     <h3>一流講師</h3>
                     <p>教育業界トッププロが直接指導。
-                    実践的なノウハウを学べます。</p>
+                    実践的なノウハウと経験を学べます。</p>
                 </div>
             </div>
         </div>
@@ -295,7 +294,7 @@
               
         <div class="instructor-card">
             <div class="instructor-image-container">
-                <img src="/images/instructor2.jpg" alt="小山 明子" class="instructor-image">
+                <img src="public/images/instructor2.jpg" alt="小山 明子" class="instructor-image">
             </div>
             <div class="instructor-info">
                 <h3 class="instructor-name">小山 明子</h3>
@@ -418,79 +417,80 @@
     </script>
 </section>
 
-<section class="course-schedule" id="schedule">
-    <div class="container">
-      <h2 class="text-center">開講日程</h2>
-      <div class="accent-line"></div>
-      
-      <div class="schedule-container">
+    <!-- 開講日程セクション（新デザイン） -->
+    <section class="course-schedule" id="schedule">
+      <div class="container">
+        <h2 class="text-center">開講日程</h2>
         <p class="schedule-intro">WHOLE LIFE認定講座は、ご都合に合わせて選べる開講日程をご用意しています。</p>
-        
-        <div class="schedule-cards">
-          <div class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">木曜日コース</span>
-            </div>
-            <div class="schedule-body">
-              <div class="schedule-date">
-                <i class="fas fa-calendar-alt"></i> 5月29日(木) 初回開講
-                <span class="sold-out" style="color:#E74C3C; font-weight:bold;">満席御礼</span>
-              </div>
-              <div class="schedule-time">
-                <i class="fas fa-clock"></i> 毎週木曜日 10:00〜12:00
-              </div>
-              <div class="schedule-note">
-                ※全16回のプログラム
-              </div>
-            </div>
-            <div class="schedule-footer">
-              <a href="#application" class="btn btn-primary">このコースに申し込む</a>
-            </div>
-          </div>
-          
-          <div class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">火曜日コース</span>
-            </div>
-            <div class="schedule-body">
-              <div class="schedule-date">
-                <i class="fas fa-calendar-alt"></i> 6月10日(火) 初回開講
-                <span class="sold-out" style="color:#E74C3C; font-weight:bold;">満席御礼</span>
-              </div>
-              <div class="schedule-time">
-                <i class="fas fa-clock"></i> 毎週火曜日 10:00〜12:00
-              </div>
-              <div class="schedule-note">
-                ※全16回のプログラム
-              </div>
-            </div>
-            <div class="schedule-footer">
-              <a href="#application" class="btn btn-primary">このコースに申し込む</a>
-            </div>
-          </div>
-                  
-          <div class="schedule-card">
-            <div class="schedule-header">
-              <span class="schedule-day">日曜日コース</span>
-            </div>
-            <div class="schedule-body">
-              <div class="schedule-date">
-                <i class="fas fa-calendar-alt"></i> 7月20日(日) 初回開講
-                <span class="sold-out" style="color:#E74C3C; font-weight:bold;">満席御礼</span>
-              </div>
-              <div class="schedule-time">
-                <i class="fas fa-clock"></i> 毎週日曜日 12:00〜14:00
-              </div>
-              <div class="schedule-note">
-                ※全16回のプログラム
-              </div>
-            </div>
-            <div class="schedule-footer">
-              <a href="#application" class="btn btn-primary">このコースに申し込む</a>
-            </div>
-          </div>
+        <!-- 曜日フィルター -->
+        <div class="weekday-filter">
+          <button data-day="all" class="active">すべて</button>
+          <button data-day="木曜日">木曜日</button>
+          <button data-day="火曜日">火曜日</button>
+          <button data-day="日曜日">日曜日</button>
         </div>
-  </section>
+        <div class="schedule-table-container">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>コース名</th>
+                <th>開始日</th>
+                <th>曜日・時間</th>
+                <th>プログラム</th>
+                <th>申し込み</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-day="木曜日">
+                <td class="course-name-cell">
+                  木曜日コース <span class="badge new">NEW</span> <span class="badge open">募集中</span>
+                </td>
+                <td class="start-date-cell">8月1日(木)</td>
+                <td class="schedule-time-cell">毎週木曜日 10:00～12:00</td>
+                <td class="program-cell">全16回のプログラム</td>
+                <td class="apply-cell">
+                  <a href="#application" class="apply-btn">このコースに申し込む</a>
+                </td>
+              </tr>
+              <tr data-day="木曜日">
+                <td class="course-name-cell">
+                  木曜日コース <span class="badge full">満席御礼</span>
+                </td>
+                <td class="start-date-cell">5月29日(木)</td>
+                <td class="schedule-time-cell">毎週木曜日 10:00～12:00</td>
+                <td class="program-cell">全16回のプログラム</td>
+                <td class="apply-cell">
+                  <button class="apply-btn" disabled>満席</button>
+                </td>
+              </tr>
+              <tr data-day="火曜日">
+                <td class="course-name-cell">
+                  火曜日コース <span class="badge full">満席御礼</span>
+                </td>
+                <td class="start-date-cell">6月10日(火)</td>
+                <td class="schedule-time-cell">毎週火曜日 10:00～12:00</td>
+                <td class="program-cell">全16回のプログラム</td>
+                <td class="apply-cell">
+                  <button class="apply-btn" disabled>満席</button>
+                </td>
+              </tr>
+              <tr data-day="日曜日">
+                <td class="course-name-cell">
+                  日曜日コース <span class="badge full">満席御礼</span>
+                </td>
+                <td class="start-date-cell">7月20日(日)</td>
+                <td class="schedule-time-cell">毎週日曜日 12:00～14:00</td>
+                <td class="program-cell">全16回のプログラム</td>
+                <td class="apply-cell">
+                  <button class="apply-btn" disabled>満席</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- /開講日程セクション（新デザイン） -->
 
     <!-- FAQセクション -->
 <section class="faq" id="faq">
@@ -643,6 +643,38 @@
         <!-- ✅ Google reCAPTCHA -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       
-        <script type="module" src="/js/menu.js"></script>
+        <script src="public/js/menu.js"></script>
+
+        <!-- トップに戻るボタン -->
+        <button id="scrollToTopBtn" aria-label="トップに戻る">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="none"/>
+            <path d="M7 15l5-5 5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <script src="index.js"></script>
       </body>
       </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // フィルターボタンとテーブル行を取得
+  const filterButtons = document.querySelectorAll('.weekday-filter button');
+  const rows = document.querySelectorAll('.schedule-table tbody tr');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const day = this.getAttribute('data-day');
+      rows.forEach(row => {
+        if (day === 'all' || row.getAttribute('data-day') === day) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
