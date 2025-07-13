@@ -1,7 +1,7 @@
 :root {
     --primary-color: #0A2647; /* ネイビー */
     --secondary-color: #144272; /* 薄いネイビー */
-    --accent-color: #FFD700; /* ゴールド */
+    --accent-color: #2056a8; /* 青 */
     --text-color: #333333;
     --light-color: #FFFFFF;
     --gray-color: #F5F5F5;
@@ -60,14 +60,42 @@ p {
 }
 
 .btn-primary {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    border: 2px solid var(--accent-color);
+    background: linear-gradient(135deg, #2056a8 0%, #3b7ddd 100%);
+    color: #fff;
+    border: 2px solid #2056a8;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(32,86,168,0.25), 0 2px 8px rgba(32,86,168,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(32,86,168,0.35), 0 4px 12px rgba(32,86,168,0.20);
+    background: linear-gradient(135deg, #3b7ddd 0%, #2056a8 100%);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -117,12 +145,49 @@ section {
 .about-cit-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     background: rgba(255,255,255,0.95);
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(80,120,200,0.10), 0 1.5px 8px rgba(80,120,200,0.08);
     padding: 3rem 2.5rem;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.about-cit-left {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 2rem;
+}
+
+.about-cit-right {
+    flex: 1;
+}
+
+/* スライドアニメーション */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-in-left.animate,
+.slide-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* アニメーション遅延 */
+.slide-in-right.animate {
+    transition-delay: 0.2s;
 }
 
 .about-cit-header {
@@ -892,7 +957,7 @@ nav ul li a {
 
 .hero-btn-primary {
     background-color: var(--accent-color);
-    color: var(--primary-color);
+    color: #fff;
     border: 2px solid var(--accent-color);
     box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
@@ -1469,13 +1534,31 @@ nav ul li a {
     align-items: center;
 }
 
-.form-privacy input {
-    width: auto;
-    margin-right: 0.5rem;
+.checkbox-group {
+    margin-top: 0.5rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.form-privacy label {
-    margin-bottom: 0;
+.checkbox-item {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 0.8rem;
+    width: auto;
+    height: auto;
+}
+
+.checkbox-item label {
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .recaptcha-container {
@@ -2823,6 +2906,12 @@ a.logo {
   box-shadow: 0 0 8px 2px #ffe25955;
 }
 
+.badge.preparing {
+  background: #ffa500;
+  color: #fff;
+  font-weight: 700;
+}
+
 .start-date-cell {
   font-weight: 600;
   color: #2056a8;
@@ -3070,6 +3159,26 @@ header{
     letter-spacing: 0.02em;
 }
 
+@media (max-width: 768px) {
+  .about-cit-content {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .about-cit-left {
+    flex: none;
+    position: static;
+    width: 100%;
+  }
+
+  .about-cit-right {
+    flex: none;
+    width: 100%;
+  }
+}
+
 @media (max-width: 600px) {
   .about-cit-content {
     padding: 1.2rem 1rem;
@@ -3265,6 +3374,380 @@ header{
     visibility: visible !important;
     pointer-events: auto !important;
     transition: none !important;
+  }
+}
+
+.form-privacy input {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.form-privacy label {
+    margin-bottom: 0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-header {
+  font-size: 1rem;
+  padding: 0.5em 1.4em;
+  margin-left: 1em;
+  height: 2.4em;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(32,86,168,0.10);
+  border-radius: 25px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .btn-header {
+    font-size: 0.95rem;
+    padding: 0.4em 1em;
+    height: 2em;
+    margin-left: 0.5em;
+  }
+}
+
+/* about-cit SVG背景 */
+.about-cit-graph-bg {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+.about-cit-bg-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+.about-cit-content {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .about-cit-graph-bg {
+    min-height: 320px;
+  }
+  .about-cit-bg-svg svg {
+    min-height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .about-cit-graph-bg {
+    min-height: 220px;
+  }
+  .about-cit-bg-svg svg {
+    min-height: 220px;
+  }
+}
+
+/* WHOLE LIFEについて（ミッション風デザイン） */
+.about-cit-mission {
+  background: #fff;
+  min-height: 80vh;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.about-cit-mission .container {
+  height: 100%;
+}
+
+.about-cit-mission-flex {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 3vw;
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  height: 80vh;
+}
+.about-cit-mission-left {
+  flex: 1 1 100%;
+  max-width: 100%;
+  display: block;
+  align-items: initial;
+  justify-content: initial;
+}
+.about-cit-mission-right {
+  flex: 0 0 20%;
+  max-width: 20%;
+  min-width: 320px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.about-cit-mission-title {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.2rem;
+}
+.about-cit-mission-lead {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  text-align: left;
+  font-size: 3.5rem;
+  color: #4a98d3;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+  margin-left: 0;
+  margin-right: 0;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.about-cit-mission-lead.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-cit-mission-lead > div {
+  display: block;
+}
+
+.about-cit-mission-text {
+  position: absolute;
+  right: 0;
+  left: auto;
+  bottom: 300px;
+  margin-right: 2rem;
+  margin-left: 0;
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.8;
+  text-align: left;
+  max-width: 500px;
+  background: none;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.about-cit-mission-text.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.about-cit-mission-lead .highlight {
+  color: #3388c7;
+  background: none;
+  font-weight: 800;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.about-cit-mission-right {
+  flex: 0 0 50%;
+  min-width: 320px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.about-cit-mission-bg-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #e3f3ff 0%, #b3d6f2 60%, #e3f3ff 100%);
+  opacity: 0.7;
+  filter: blur(32px);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.about-cit-mission-desc {
+  position: relative;
+  z-index: 2;
+  font-size: 1.35rem;
+  color: #555;
+  line-height: 2.1;
+  font-weight: 400;
+  background: none;
+  padding: 2.5rem 2rem;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  .about-cit-mission-flex {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: stretch;
+    min-height: auto;
+  }
+  .about-cit-mission-left, .about-cit-mission-right {
+    min-width: 0;
+    width: 100%;
+  }
+  .about-cit-mission-left {
+    text-align: center;
+    justify-content: center;
+  }
+  .about-cit-mission-right {
+    align-items: center;
+    justify-content: center;
+  }
+  .about-cit-mission-lead {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .about-cit-mission-text {
+    text-align: center;
+    margin-right: auto;
+  }
+  .about-cit-mission-bg-circle {
+    width: 320px;
+    height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .about-cit-mission {
+    padding: 2.5rem 0 2rem 0;
+    min-height: 50vh;
+  }
+  .about-cit-mission-flex {
+    min-height: 50vh;
+  }
+  .about-cit-mission-lead {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .about-cit-mission-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .about-cit-mission-desc {
+    font-size: 1rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .about-cit-mission-bg-circle {
+    width: 180px;
+    height: 180px;
+    filter: blur(18px);
+  }
+}
+
+/* 見出しを大きく・青グラデーションで */
+.about-cit-mission-heading {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 2.2rem;
+  background: linear-gradient(90deg, #4a98d3 0%, #2b7bb7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  line-height: 1.1;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: none;
+}
+.about-cit-mission-heading.fadein {
+  animation: fadein-right-to-left 1.1s cubic-bezier(.4,0,.2,1) 0.1s 1 both;
+}
+@keyframes fadein-right-to-left {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-cit-mission-flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3vw;
+  position: relative;
+}
+.about-cit-mission-left {
+  flex: 0 0 40%;
+  max-width: 40%;
+  min-width: 260px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.about-cit-mission-right {
+  flex: 0 0 60%;
+  max-width: 60%;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .about-cit-mission-flex {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+  .about-cit-mission-left, .about-cit-mission-right {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-cit-mission-heading {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-cit-mission {
+    padding: 2.5rem 0 2rem 0;
+  }
+  .about-cit-mission-heading {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+  .about-cit-mission-lead {
+    font-size: 1.1rem;
+  }
+  .about-cit-mission-desc {
+    font-size: 1rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .about-cit-mission-bg-circle {
+    width: 180px;
+    height: 180px;
+    filter: blur(18px);
   }
 }
 

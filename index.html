@@ -102,7 +102,7 @@
             <li><a href="#instructors">講師紹介</a></li>
             <li><a href="#schedule">開講日程</a></li>
             <li><a href="#faq">よくある質問</a></li>
-            <li><a href="#application">申し込み</a></li>
+            <li><a href="#application" class="btn btn-primary btn-header">申し込み</a></li>
             <!-- … -->
           </ul>
         </nav>
@@ -161,38 +161,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-    <!-- CITについて -->
-    <section class="about-cit">
+    <!-- WHOLE LIFEについて（新デザイン） -->
+    <section class="about-cit about-cit-mission">
         <div class="container">
-            <div class="about-cit-content">
-                <div class="about-cit-header">
-                    <h2>WHOLE LIFEについて</h2>
-                </div>
-                <div class="about-cit-body">
-                    <p class="intro-text">
-                        「WHOLE LIFE」には、  
-                        <span class="highlight">"人生に起きる全ての悩みを一緒に乗り越えたい"</span><br>
-                        という想いが込められています。
-                      </p>
-                    
-                    <p class="intro-lead">私たちは、これを単なる理想ではなく、実現できる未来だと信じています。</p>
-                    
-                    <div class="benefit-cards">
-                        <div class="benefit-card">
-                            <p><strong>パートナーとの関係がもっと心地よいものに変わる。</strong></p>
-                        </div>
-                        
-                        <div class="benefit-card">
-                            <p><strong>その変化が親子関係にも影響を与え、家庭全体が穏やかになる。</strong></p>
-                        </div>
-                        
-                        <div class="benefit-card">
-                            <p><strong>そして、そんな家庭が増えれば、日本全体がもっと明るくなる。</strong></p>
-                        </div>
+            <div class="about-cit-mission-flex">
+                <div class="about-cit-mission-left">
+                    <div class="about-cit-mission-lead">
+                        <div>「人生に起きるあらゆる悩みを、</div>
+                        <div>　共に乗り越えたい」</div>
                     </div>
-                    
-                    <p class="intro-lead">だからこそ「WHOLE LIFE」は、「人生で一番大切な人たち」とのコミュニケーションを学び、自分で対人関係の問題を解決できるプロを育てる場所を目指しています。</p>
-                    <p>大切なのは、"生まれてから最期まで"の人生を豊かにするコミュニケーションの力。その第一歩を、私たちと一緒に踏み出してみませんか？</p>
+                </div>
+                <div class="about-cit-mission-right">
+                    <div class="about-cit-mission-bg-circle"></div>
+                    <div class="about-cit-mission-text">
+                        WHOLE LIFEについて、<br>そんな想いを名前に込めました。
+                        <br>私たちは、それが理想ではなく、<br>実現できる未来だと信じています。
+                    </div>
                 </div>
             </div>
         </div>
@@ -443,13 +427,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <tbody>
               <tr data-day="木曜日">
                 <td class="course-name-cell">
-                  木曜日コース <span class="badge new">NEW</span> <span class="badge open">募集中</span>
+                  未定 <span class="badge preparing">準備中</span>
                 </td>
-                <td class="start-date-cell">8月1日(木)</td>
-                <td class="schedule-time-cell">毎週木曜日 10:00～12:00</td>
-                <td class="program-cell">全16回のプログラム</td>
+                <td class="start-date-cell">未定</td>
+                <td class="schedule-time-cell">未定</td>
+                <td class="program-cell">未定</td>
                 <td class="apply-cell">
-                  <a href="#application" class="apply-btn">このコースに申し込む</a>
+                  <a href="#application" class="apply-btn btn btn-primary">お問い合わせ</a>
                 </td>
               </tr>
               <tr data-day="木曜日">
@@ -582,18 +566,18 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             
             <div class="pricing-button">
-                <a href="#application" class="btn btn-primary btn-lg">今すぐ申し込む</a>
+                <a href="#application" class="btn btn-primary btn-lg">お問い合わせ</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 申し込みフォームセクション -->
+<!-- お問い合わせセクション -->
 <section class="application" id="application">
     <div class="container">
-        <h2 class="text-center">お申し込み</h2>
+        <h2 class="text-center">お問い合わせ</h2>
         <div class="application-card">
-            <h4>メールでのお申し込み</h4>
+            <h4>メールでのお問い合わせ</h4>
             <form class="application-form" action="https://ssgform.com/s/El7lhFuUJMBL" method="post">
                 <div class="form-group">
                     <label for="name">お名前 <span class="required">*</span></label>
@@ -611,13 +595,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">ご質問・ご要望など</label>
-                    <textarea id="message" name="message" rows="4"></textarea>
+                    <label>お問い合わせ内容 <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inquiry1" name="inquiry[]" value="次回の講座開催について">
+                            <label for="inquiry1">次回の講座開催について</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inquiry2" name="inquiry[]" value="お申し込み方法について">
+                            <label for="inquiry2">お申し込み方法について</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inquiry3" name="inquiry[]" value="無料相談の依頼について">
+                            <label for="inquiry3">無料相談の依頼について</label>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="form-group form-privacy">
+                <div class="form-group">
+                  <div class="form-privacy">
                     <input type="checkbox" id="privacy" name="privacy" required>
                     <label for="privacy">個人情報保護方針に同意する <span class="required">*</span></label>
+                  </div>
                 </div>
                 
                 <div class="form-group recaptcha-container">
@@ -626,7 +625,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 
                 <div class="form-submit">
-                    <button type="submit" class="btn btn-primary btn-lg">申し込む</button>
+                    <button type="submit" class="btn btn-primary btn-lg">送信する</button>
                 </div>
             </form>
             
@@ -653,6 +652,37 @@ document.addEventListener('DOMContentLoaded', function() {
           </svg>
         </button>
         <script src="index.js"></script>
+        
+        <!-- スライドアニメーション用のスクリプト -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observerを使用してスライドアニメーションを制御
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // アニメーション対象の要素を監視
+            const slideElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
+            slideElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // 見出しの右→左フェードイン
+            const heading = document.querySelector('.about-cit-mission-heading');
+            if (heading) {
+                setTimeout(() => heading.classList.add('fadein'), 200);
+            }
+        });
+        </script>
       </body>
       </html>
 
@@ -676,5 +706,45 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Intersection Observerを使用してセクションが画面に入ったときにアニメーションを開始
+  const observerOptions = {
+    threshold: 0.3, // セクションの30%が見えたときにトリガー
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const text = entry.target.querySelector('.about-cit-mission-text');
+        const lead = entry.target.querySelector('.about-cit-mission-lead');
+        
+        if (text) {
+          setTimeout(() => {
+            text.classList.add('animate');
+          }, 300);
+        }
+        
+        if (lead) {
+          setTimeout(() => {
+            lead.classList.add('animate');
+          }, 300);
+        }
+        
+        // 一度実行したら監視を停止
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // about-cit-missionセクションを監視
+  const missionSection = document.querySelector('.about-cit-mission');
+  if (missionSection) {
+    observer.observe(missionSection);
+  }
 });
 </script>
