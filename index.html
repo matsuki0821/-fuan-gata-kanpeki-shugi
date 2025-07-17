@@ -166,14 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="about-cit-mission-flex">
                 <div class="about-cit-mission-left">
-                    <div class="about-cit-mission-lead">
+                    <div class="about-cit-mission-lead fade-in-item">
                         <div>「人生に起きるあらゆる悩みを、</div>
                         <div>　共に乗り越えたい」</div>
                     </div>
                 </div>
                 <div class="about-cit-mission-right">
                     <div class="about-cit-mission-bg-circle"></div>
-                    <div class="about-cit-mission-text">
+                    <div class="about-cit-mission-text fade-in-item">
                         WHOLE LIFEについて、<br>そんな想いを名前に込めました。
                         <br>私たちは、それが理想ではなく、<br>実現できる未来だと信じています。
                     </div>
@@ -281,28 +281,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="problem-icon">
                         <i class="fas fa-child"></i>
                     </div>
-                    <p>子どもの悩みに応えられない</p>
+                    <p>子育てがつらい</p>
                 </div>
                 
                 <div class="problem-item fade-in-item">
                     <div class="problem-icon">
                         <i class="fas fa-heart-broken"></i>
                     </div>
-                    <p>パートナーのことが信じられない</p>
+                    <p>好きなのに喧嘩が絶えない</p>
                 </div>
                 
                 <div class="problem-item fade-in-item">
                     <div class="problem-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <p>職場でも家でも 対人関係に悩まされている</p>
+                    <p>人間関係に悩みやすい</p>
                 </div>
                 
                 <div class="problem-item fade-in-item">
                     <div class="problem-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
-                    <p>悩んだとき、何が正解なのか分からずモヤモヤする</p>
+                    <p>人の目が気になってしまう</p>
                 </div>
             </div>
             <div class="problems-cta fade-in-item">
@@ -829,12 +829,12 @@ document.addEventListener('DOMContentLoaded', function() {
           heading.classList.add('animate');
         }
         
-        // 少し遅れてカードをアニメーション
-        setTimeout(() => {
-          fadeItems.forEach(item => {
+        // カードを1枚ずつ順番にアニメーション
+        fadeItems.forEach((item, i) => {
+          setTimeout(() => {
             item.classList.add('animate');
-          });
-        }, 300);
+          }, 300 + i * 200); // 300ms後に1枚目、以降200ms間隔
+        });
         
         // 一度実行したら監視を停止
         featuresObserver.unobserve(entry.target);

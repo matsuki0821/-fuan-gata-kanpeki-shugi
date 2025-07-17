@@ -210,104 +210,6 @@ section {
     display: none;
 }
 
-.about-cit-body {
-    padding: 2rem;
-    border-radius: 10px;
-    background-color: var(--light-color);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.about-cit-body .intro-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #234;
-    text-align: center;
-    margin-bottom: 2.2rem;
-    line-height: 1.7;
-    letter-spacing: 0.03em;
-}
-
-.about-cit-body .intro-text .highlight {
-    color: #2056a8;
-    background: linear-gradient(90deg, #e3f0ff 60%, #f7fbff 100%);
-    font-weight: 800;
-    padding: 0.1em 0.3em;
-    border-radius: 0.4em;
-    box-shadow: 0 2px 8px rgba(80,120,200,0.07);
-    border-bottom: none;
-}
-
-.highlight {
-    color: var(--primary-color);
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-}
-
-.highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-}
-
-.benefit-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2.5rem;
-    margin: 3rem 0;
-}
-
-.benefit-card {
-    flex: 1;
-    min-width: 250px;
-    padding: 2.5rem 1.5rem;
-    border-radius: 2rem;
-    background: linear-gradient(120deg, #f0f6ff 60%, #eaf2fb 100%);
-    box-shadow: 0 8px 32px rgba(80,120,200,0.13), 0 1.5px 8px rgba(80,120,200,0.10);
-    text-align: center;
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-card:hover {
-    transform: translateY(-12px) scale(1.05);
-    box-shadow: 0 16px 48px 0 rgba(80,120,200,0.18), 0 1.5px 8px rgba(80,120,200,0.13);
-    z-index: 2;
-}
-
-.benefit-icon {
-    font-size: 2.6rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-}
-
-.benefit-card strong {
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: #234;
-    letter-spacing: 0.01em;
-    line-height: 1.7;
-}
-
-.closing-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
 /* 悩みセクション */
 .problems {
     background: linear-gradient(135deg, #e3f0ff 0%, #f7fbff 100%);
@@ -2879,9 +2781,10 @@ a.logo {
 .schedule-table th {
   background: linear-gradient(135deg, #2056a8 0%, #3b7ddd 100%);
   color: #fff;
+  font-weight: 700;
+  text-align: center;
   padding: 1.2rem 1rem;
   text-align: left;
-  font-weight: 700;
   font-size: 1.1rem;
   border-bottom: 2px solid rgba(255,255,255,0.2);
 }
@@ -4399,6 +4302,10 @@ header{
     font-size: 1.05rem;
     gap: 0.4em;
   }
+}
+
+.course-schedule .schedule-table th {
+  color: #fff !important;
 }
 
 
